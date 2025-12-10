@@ -5,3 +5,4 @@ def home_view(request):
         request,
         'home.html'
     )
+
