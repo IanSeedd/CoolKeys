@@ -10,6 +10,7 @@ def home_view(request):
         'home.html'
     )
 
+<<<<<<< HEAD
 def cadastro_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -28,3 +29,5 @@ def cadastro_view(request):
         form = UserCreationForm() # Se a informação for inválida
     
     return render(request,'registration/cadastro.html',{'form': form})
+=======
+>>>>>>> 1436849d53941af12bbc7a6162ceadaadc15bf5d
