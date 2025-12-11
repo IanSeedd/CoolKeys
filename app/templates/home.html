@@ -8,7 +8,23 @@
     <title>Document</title>
 </head>
 <body class="bg-light">
-
+    {% if user.is_authenticated %}
+        <h1>Hello {{ user.username }}</h1>
+    {% endif %}
+    {% for jogo in jogos %}
+        <div class="card" style="width: 18rem;">
+            {% if jogo.icone %}
+            <img src="{{ jogo.icone.url }}" class="card-img-top" alt="">
+            {% endif %}   
+            <div class="card-body">
+                <h5 class="card-title">{{ jogo.nome }}</h5>
+                <h5 class="card-title">R$: {{ jogo.preco }}</h5>
+                <p class="card-text">{{ jogo.categoria }}</p>
+                <p class="card-text">{{ jogo.descricao }}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

@@ -7,8 +7,10 @@ from django.contrib.auth.models import Group # <-- Importação para cadastro us
 def home_view(request):
     return render(
         request,
-        'home.html'
+        'home.html',
+        {'jogos': Jogo.objects.all}
     )
+
 
 
 def cadastro_view(request):
