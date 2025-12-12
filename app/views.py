@@ -6,10 +6,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group # <-- Importação para cadastro usuario do grupo Cliente
 
 def home_view(request):
+    context = {
+        'jogo': Jogo.objects.all,
+        'categorias': Categoria.objects.all
+    }
     return render(
         request,
         'home.html',
-        {'jogos': Jogo.objects.all}
+        context
     )
 
 def cadastro_view(request):
