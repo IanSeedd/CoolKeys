@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *  # 1. Importar
 from django.contrib.auth.forms import UserCreationForm #formulário de criação de usuário
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group # <-- Importação para cadastro usuario do grupo Cliente
 
 def home_view(request):
@@ -32,3 +33,40 @@ def cadastro_view(request):
     
     return render(request,'registration/cadastro.html',{'form': form})
 
+@login_required
+def adicionar_carrinho(request, jogo_id):
+    """View SIMPLES que funciona"""
+    try:
+        # 1. Encontra o jogo
+        jogo = Jogo.objects.get(id=jogo_id)
+        
+        # 2. Pega ou cria carrinho (simplificado)
+        carrinho, created = Compra.objects.get_or_create(
+            usuario=request.user,
+            status='carrinho',
+            defaults={'valor_total': 0}
+        )
+        
+        # 3. Adiciona item (simplificado)
+        item, item_created = ItemCompra.objects.get_or_create(
+            compra=carrinho,
+            jogo=jogo,
+            defaults={'preco_unitario': jogo.preco, 'quantidade': 1}
+        )
+        
+        if not item_created:
+            item.quantidade += 1
+            item.save()
+        
+        # 4. Atualiza total
+        total = sum(item.subtotal() for item in carrinho.itens.all())
+        carrinho.valor_total = total
+        carrinho.save()
+        
+        print(f"✅ Item adicionado! Carrinho ID: {carrinho.id}, Itens: {carrinho.itens.count()}")
+        
+    except Exception as e:
+        print(f"❌ Erro: {e}")
+    
+    # 5. REDIRECIONA CORRETAMENTE
+    return redirect('/')

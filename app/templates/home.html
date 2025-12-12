@@ -10,7 +10,6 @@
 <body class="bg-light">
     {% if user.is_authenticated %}
         <h1>Hello {{ user.username }}</h1>
-    {% endif %}
     {% for jogo in jogos %}
         <div class="card" style="width: 18rem;">
             {% if jogo.icone %}
@@ -21,10 +20,16 @@
                 <h5 class="card-title">R$: {{ jogo.preco }}</h5>
                 <p class="card-text">{{ jogo.categoria }}</p>
                 <p class="card-text">{{ jogo.descricao }}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form method="POST" action="/add/{{ jogo.id }}/">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Adicionar ao carrinho</button>
+                </form>
             </div>
         </div>
     {% endfor %}
+    
+    {% endif %}
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
+
