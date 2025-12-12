@@ -1,0 +1,216 @@
+/* =========================================
+   PALETA DE CORES (Extraída da sua imagem)
+   ========================================= */
+:root {
+    --cor-destaque: #3D46F2;       /* Azul Roxo Vibrante (Esquerda) */
+    --cor-secundaria: #032CA6;     /* Azul Médio */
+    --cor-fundo-site: #021E73;     /* Azul do Meio (Fundo Principal) */
+    --cor-escura: #011526;         /* Azul Quase Preto (Navbar/Footer) */
+    --cor-ciano: #048ABF;          /* Azul Claro (Detalhes/Hover) */
+    --texto-branco: #ffffff;
+    --texto-cinza: #ced4da;
+}
+
+/* =========================================
+   RESET E FUNDO GERAL
+   ========================================= */
+body, html {
+    background-color: var(--cor-fundo-site) !important; /* Força a cor do meio */
+    color: var(--texto-branco) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--texto-branco);
+    font-weight: 700;
+}
+
+/* =========================================
+   NAVBAR (CABEÇALHO)
+   ========================================= */
+.navbar {
+    background-color: var(--cor-escura) !important; /* Navbar bem escura */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 15px 0;
+}
+
+/* Links da Navbar */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--cor-ciano) !important; /* Fica ciano ao passar o mouse */
+}
+
+/* Ícones (Lupa, Usuário, Carrinho) */
+.navbar i, .navbar .fas, .navbar .fab {
+    color: var(--texto-branco) !important;
+}
+
+/* Campo de Busca (Input) */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white !important; /* Texto digitado branco */
+}
+/* =========================================
+   RODAPÉ (FOOTER) - COM FUNDO DIFERENTE
+   ========================================= */
+footer {
+    /* MUDANÇA AQUI: Usando um Gradiente Vertical */
+    /* Vai do Azul Quase Preto (#011526) embaixo para o Azul Médio (#032CA6) em cima */
+    background: linear-gradient(to top, var(--cor-escura), var(--cor-secundaria)) !important;
+    
+    /* Se preferir uma cor sólida (sem gradiente), apague a linha de cima e use esta: */
+    /* background-color: var(--cor-secundaria) !important; */
+
+    color: var(--texto-cinza) !important;
+    
+    /* Adicionei essa borda Ciano para "cortar" o rodapé do resto do site */
+    border-top: 2px solid rgb(31, 149, 170);
+    
+    margin-top: 60px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+footer a {
+    color: var(--texto-cinza) !important;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: var(--texto-branco) !important;
+    text-shadow: 0 0 10px var(--cor-ciano); /* Efeito neon ao passar o mouse */
+    text-decoration: none;
+}
+
+/* Ícones sociais maiores e com cor */
+footer i {
+    color: var(--texto-branco);
+    transition: transform 0.2s;
+}
+
+footer i:hover {
+    color: var(--cor-ciano);
+    transform: scale(1.2); /* Aumenta um pouquinho ao passar o mouse */
+}
+footer {
+    width: 99.6vw !important; /* 100vw = 100% da largura da janela */
+    margin-left: calc(-50vw + 50%) !important; /* Centraliza e estica */
+    margin-right: calc(-50vw + 50%) !important;
+    padding: 0 !important;
+    
+    /* Suas cores */
+    background: linear-gradient(to top, #011526, #032CA6) !important;
+    /* Se preferir uma cor sólida (sem gradiente), apague a linha de cima e use esta: */
+    /* background-color: var(--cor-secundaria) !important; */
+
+    color: var(--texto-cinza) !important;
+    
+    /* Adicionei essa borda Ciano para "cortar" o rodapé do resto do site */
+    border-top: 2px solid rgb(31, 149, 170);
+    
+    margin-top: 60px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+/* Mantém o conteúdo do footer alinhado no meio */
+footer .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+@keyframes slideDownFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Começa 20px para cima (escondido) */
+        display: block;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+        display: block;
+    }
+}
+
+/* 2. Aplicando a animação quando o Bootstrap adiciona a classe 'show' */
+.dropdown-menu.show {
+    animation: slideDownFade 0.3s ease forwards; /* Dura 0.3 segundos */
+    transform-origin: top; /* A animação começa do topo */
+}
+
+/* 3. (Opcional) Deixar o menu mais bonito com bordas arredondadas e sombra */
+.dropdown-menu {
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important; /* Sombra forte para destacar do fundo */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Borda sutil */
+    margin-top: 10px !important; /* Dá um espacinho do botão para não ficar grudado */
+    overflow: hidden; /* Garante que o conteúdo não vaze nas bordas redondas */
+}
+.dropdown-menu {
+    background-color: #011526 !important; /* Fundo Azul Quase Preto */
+    border: 1px solid #048ABF !important; /* Borda fina Ciano Neon */
+    border-radius: 12px !important;       /* Cantos bem arredondados */
+    padding: 10px 0;                      /* Espaço em cima e embaixo */
+    
+    /* Sombra brilhante para dar efeito de luz */
+    box-shadow: 0 0 15px rgba(4, 138, 191, 0.3) !important; 
+    
+    /* Afasta um pouco da navbar para parecer que está flutuando */
+    margin-top: 15px !important; 
+}
+
+/* O triângulo (opcional) - cria uma pontinha apontando para cima */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 20px; /* Ajuste para alinhar com o ícone */
+    width: 12px;
+    height: 12px;
+    background-color: #011526;
+    border-left: 1px solid #048ABF;
+    border-top: 1px solid #048ABF;
+    transform: rotate(45deg); /* Gira o quadrado para virar um losango/seta */
+}
+
+/* Os itens da lista (Links) */
+.dropdown-item {
+    color: #ffffff !important;      /* Texto Branco */
+    font-weight: 500;
+    padding: 10px 20px;             /* Mais espaço para clicar */
+    transition: all 0.3s ease;      /* Animação suave */
+    border-left: 3px solid transparent; /* Prepara uma borda invisível na esquerda */
+}
+
+/* O HEADER (Título "Minha Conta") */
+.dropdown-header {
+    color: #048ABF !important;      /* Título em Ciano */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* A Linha divisória */
+.dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* EFEITO AO PASSAR O MOUSE (HOVER) */
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgba(61, 70, 242, 0.2) !important; /* Fundo azul transparente */
+    color: #fff !important;
+    padding-left: 28px;             /* O texto anda para a direita! */
+    border-left: 3px solid #3D46F2; /* Acende uma barra lateral */
+}
+
+/* Item de SAIR (Vermelho suave no hover) */
+.dropdown-item.text-danger:hover {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    border-left-color: #dc3545;
+}
