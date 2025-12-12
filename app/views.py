@@ -12,8 +12,6 @@ def home_view(request):
         {'jogos': Jogo.objects.all}
     )
 
-
-
 def cadastro_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
