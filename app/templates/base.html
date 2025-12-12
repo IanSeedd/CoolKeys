@@ -31,8 +31,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categorias</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">RPG</a>
-                            <a class="dropdown-item" href="#">Ação</a>
+                            {% for categoria in categorias %}
+                                <a class="dropdown-item">{{ categoria.nome }}</a>
+                            {% endfor %}
                         </div>
                     </li>
                 </ul>
