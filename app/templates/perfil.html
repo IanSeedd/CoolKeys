@@ -12,9 +12,11 @@
         <div class="row align-items-center">
             
             <div class="profile-avatar-container">
-                    {% if user.minha_foto.last and user.minha_foto.last.foto_perfil %}
-                        <img src="{{ user.minha_foto.last.foto_perfil.url }}" alt="Avatar" class="profile-avatar">
-                    {% endif %}
+                {% with foto_perfil=user.minha_foto.first %}
+                {% if foto_perfil %}
+                    <img src="{{ foto_perfil.foto_perfil.url }}" alt="Foto de Perfil" class="profile-avatar">
+                {% endif %}
+                {% endwith %}
 
                     <form method="POST" enctype="multipart/form-data" id="form-foto">
                         {% csrf_token %}

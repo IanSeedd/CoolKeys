@@ -102,8 +102,20 @@
                                     
                                     <div class="mt-auto">
                                         <div class="mb-3">
-                                            <strong class="game-price" style="color: #048ABF; font-size: 1.3rem;">R$ {{ jogo.preco|floatformat:2 }}</strong>
-                                        </div>
+                                        {% if jogo.desconto > 0 %}
+                                            <div class="d-flex align-items-center">
+                                                <span class="old-price">R$ {{ jogo.preco|floatformat:2 }}</span>
+                                                <span class="discount-badge">-{{ jogo.desconto }}%</span>
+                                            </div>
+                                            <strong class="game-price" style="color: #00ff88; font-size: 1.4rem;">
+                                                R$ {{ jogo.preco_com_desconto|floatformat:2 }}
+                                            </strong>
+                                        {% else %}
+                                            <strong class="game-price" style="color: #048ABF; font-size: 1.3rem;">
+                                                R$ {{ jogo.preco|floatformat:2 }}
+                                            </strong>
+                                        {% endif %}
+                                    </div>
                                         
                                         {% if user.is_authenticated %}
                                             <form method="POST" action="{% url 'adicionar_carrinho' jogo.id %}">

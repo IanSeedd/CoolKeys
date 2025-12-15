@@ -93,15 +93,10 @@
         <span>R$  {{ subtotal_sem_desconto|floatformat:2 }}</span>
     </div>
 
-
-                    <div class="d-flex justify-content-between text-success mb-2">
-                        <span>Descontos Aplicados</span>
-                        {% if total_economizado > 0 %}
-                            <span class="fw-bold">- R$ {{ total_economizado|floatformat:2 }}</span>
-                        {% else %}
-                            <span>- R$ 0,00</span>
-                        {% endif %}
-                    </div>
+            <div class="d-flex justify-content-between text-success mb-2">
+                <span>Descontos:</span>
+                <span class="fw-bold">- R$ {{ valor_descontado|floatformat:2 }}</span>
+            </div>
    
 
                 <div class="divider"></div>

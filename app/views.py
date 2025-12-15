@@ -126,6 +126,14 @@ def carrinho_view(request):
         else:
             # Usa preco_unitario salvo
             subtotal_sem_desconto += float(item.preco_unitario or 0) * item.quantidade
+
+    valor_descontado = 0  # Valor do desconto (porcentagem aplicada ao preço )
+    
+    for item in itens_carrinho:
+        if item.jogo:
+            # Desconto (convertendo Decimal para float)
+            desconto_unidade = float(item.jogo.valor_desconto)
+            valor_descontado += desconto_unidade * item.quantidade
     
     # Calcula total
     total = carrinho.valor_total
@@ -135,6 +143,7 @@ def carrinho_view(request):
         'itens': itens_carrinho,
         'total': total,
         'subtotal_sem_desconto': subtotal_sem_desconto,
+        'valor_descontado': valor_descontado,
     }
     return render(request, 'carrinho.html', context)
 # Finalizar compra
@@ -256,4 +265,4 @@ def dashboard_admin_view(request):
         'compras_recentes': compras_recentes,
     }
     
-    return render(request, 'control/painel.html', context)
+    return render(request, 'admin/dashboard.html', context)
