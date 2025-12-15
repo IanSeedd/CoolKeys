@@ -111,7 +111,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 #usuário
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login/' #preencher essa chave quando o html estiver pronto
+LOGIN_URL = '/login/'
+ #preencher essa chave quando o html estiver pronto
 
 #imagens
 
