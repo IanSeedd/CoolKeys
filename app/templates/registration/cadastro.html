@@ -3,48 +3,56 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
 <div class="login-page">
-    <div class="login-box">
 
-        <div class="image-area">
-            <img src="{% static 'img/image11.png' %}" alt="Cadastro">
+    <div class="container">
+        <div class="login-box">
+
+            <div class="image-area">
+                <img src="{% static 'img/image11.png' %}" alt="Cadastro Icon">
+            </div>
+
+            <h3 style="color: white; margin-bottom: 25px; text-align: center;">Criar Nova Conta</h3>
+
+            <form method="post" action="{% url 'cadastro' %}">
+                {% csrf_token %}
+                
+                <div class="input-group">
+                    <label>Nome de usuário</label>
+                    <input type="text" name="username" required placeholder="leonardo">
+                </div>
+                
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" name="password1" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Confirmar senha</label>
+                    <input type="password" name="password2" required>
+                </div>
+                
+                <button type="submit" class="btn-login">CADASTRAR</button>
+                
+                <p class="register">
+                    Já tem conta? <a href="{% url 'login' %}">Faça login</a>
+                </p>
+            </form>
+            
         </div>
-
-        <form>
-            <div class="input-group">
-                <label>Nome de usuario</label>
-                <input type="text" required>
-            </div>
-
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" required>
-            </div>
-
-            <div class="input-group">
-                <label>Senha</label>
-                <input type="password" required>
-            </div>
-
-            <div class="input-group">
-                <label>Confirmar senha</label>
-                <input type="password" required>
-            </div>
-
-            <button class="btn-login">CADASTRAR</button>
-
-            <p class="register">
-                Já tem conta?
-                <a href="{% url 'login' %}">Faça login</a>
-            </p>
-        </form>
-
     </div>
+
 </div>
 
 </body>

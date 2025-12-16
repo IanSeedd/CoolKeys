@@ -1,7 +1,7 @@
 /* =========================================
    VARIÁVEIS E PALETA DE CORES
    ========================================= */
-:root {
+   :root {
     --cor-destaque: #3D46F2;
     --cor-secundaria: #032CA6;
     --cor-fundo-site: #021E73;
@@ -27,7 +27,6 @@ body, html {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -100,21 +99,27 @@ h1, h2, h3, h4, h5, h6 {
    CARDS DE JOGOS
    ========================================= */
 .game-card {
-    background-color: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    background: linear-gradient(180deg, #061a4a 0%, #011526 100%) !important;
+    border: 1px solid #048ABF !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
-    color: var(--texto-branco);
+    color: #ffffff !important;
     display: flex;
     flex-direction: column;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: rgba(56, 182, 255, 0.3);
+    transform: translateY(-10px) !important;
+    border-color: #3D46F2 !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(4, 138, 191, 0.6) !important;
+}
+
+.game-card .card-body {
+    background-color: transparent !important;
+    color: #ffffff !important;
 }
 
 .card-img-top {
@@ -124,6 +129,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-title {
     font-size: 1.1rem;
+    color: #ffffff !important;
+    font-weight: 700 !important;
     margin-bottom: 0.5rem;
 }
 
@@ -142,9 +149,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .game-price {
-    font-size: 1.3rem;
+    font-size: 1.4rem !important;
     font-weight: bold;
-    color: #fff;
+    color: #048ABF !important;
 }
 
 .game-old-price {
@@ -174,14 +181,12 @@ h1, h2, h3, h4, h5, h6 {
    RODAPÉ (FOOTER) - CORRIGIDO
    ========================================= */
 footer {
-    /* Técnica segura para esticar o footer sem quebrar a tela */
     position: relative;
     width: 100vw;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    
     background: linear-gradient(to top, var(--cor-escura), var(--cor-secundaria)) !important;
     color: var(--texto-cinza) !important;
     border-top: 2px solid rgb(31, 149, 170);
@@ -208,37 +213,38 @@ footer i:hover {
     color: var(--cor-ciano);
     transform: scale(1.2);
 }
+
 /* =========================================
    FIX PARA FORÇAR TELA CHEIA (BREAKOUT)
    ========================================= */
 .quebra-layout {
-    width: 100vw;               /* Largura da janela inteira */
+    width: 100vw;
     position: relative;
-    left: 50%;                  /* Move para o meio */
+    left: 50%;
     right: 50%;
-    margin-left: -50vw;         /* Puxa de volta para cobrir a esquerda */
-    margin-right: -50vw;        /* Puxa para cobrir a direita */
-    padding-left: 20px;         /* Margem interna de segurança */
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-left: 20px;
     padding-right: 20px;
 }
 
-/* Garante que o container de dentro use 100% do espaço disponível */
 .quebra-layout .container-fluid {
     max-width: 100% !important;
     width: 100% !important;
-    padding: 0 40px; /* Ajuste fino das laterais */
+    padding: 0 40px;
 }
+
+/* =========================================
+   BOTÕES NEON
+   ========================================= */
 .btn-voltar-neon {
     display: inline-flex;
     align-items: center;
     padding: 10px 25px;
-    
-    /* Cores baseadas nas suas variáveis */
     color: var(--cor-ciano) !important;
     border: 2px solid var(--cor-ciano) !important;
     background-color: transparent;
-    
-    border-radius: 50px; /* Formato de pílula */
+    border-radius: 50px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -246,530 +252,457 @@ footer i:hover {
     transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse */
 .btn-voltar-neon:hover {
     background-color: var(--cor-ciano);
-    color: var(--cor-escura) !important; /* Texto fica escuro para leitura */
-    box-shadow: 0 0 20px rgba(4, 138, 191, 0.6); /* Brilho Neon */
-    transform: translateX(-5px); /* Efeito de recuo animado */
+    color: var(--cor-escura) !important;
+    box-shadow: 0 0 20px rgba(4, 138, 191, 0.6);
+    transform: translateX(-5px);
 }
+
 .btn-ver-mais-neon {
     display: inline-flex;
     align-items: center;
     padding: 8px 20px;
-    
-    /* Gradiente sutil usando suas cores */
-    background: linear-gradient(45deg, var(--cor-ciano), #3a7bd5); 
+    background: linear-gradient(45deg, var(--cor-ciano), #3a7bd5);
     color: white !important;
-    
     border: none;
-    border-radius: 30px; /* Mais arredondado */
+    border-radius: 30px;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-decoration: none;
-    
-    /* Sombra suave inicial */
     box-shadow: 0 4px 15px rgba(4, 138, 191, 0.3);
     transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse (Hover) */
 .btn-ver-mais-neon:hover {
-    /* Aumenta o brilho e muda a cor da sombra */
     box-shadow: 0 6px 20px rgba(4, 138, 191, 0.6);
-    transform: translateY(-2px); /* Leve subida */
-    background: linear-gradient(45deg, #3a7bd5, var(--cor-ciano)); /* Inverte o gradiente */
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #3a7bd5, var(--cor-ciano));
 }
 
-/* Efeito no ícone */
 .btn-ver-mais-neon i {
     transition: transform 0.3s ease;
 }
+
 .btn-ver-mais-neon:hover i {
-    transform: translateX(4px); /* Move a setinha para a direita */
-}
-/* ... (seu CSS do botão neon já existente) ... */
-
-    /* --- NOVO CSS PARA AS SETAS DO CARROSSEL --- */
-
-    /* Aumenta a área lateral e deixa sempre visível */
-    #carouselBanner .carousel-control-prev,
-    #carouselBanner .carousel-control-next {
-        opacity: 1; /* Remove a transparência padrão do Bootstrap */
-        width: 80px; /* Largura da área clicável lateral */
-    }
-
-    /* Estiliza o ícone da seta (a bolinha neon) */
-    #carouselBanner .carousel-control-prev-icon,
-    #carouselBanner .carousel-control-next-icon {
-        background-color: var(--cor-ciano); /* Fundo Ciano Neon */
-        /* Se quiser um fundo escuro semi-transparente, use: background-color: rgba(0,0,0,0.6); */
-        
-        border-radius: 50%; /* Transforma em um círculo */
-        width: 50px;        /* Largura do círculo */
-        height: 50px;       /* Altura do círculo */
-        background-size: 25px; /* Tamanho da setinha branca dentro do círculo */
-        
-        /* Adiciona uma sombra/brilho neon */
-        box-shadow: 0 0 15px rgba(4, 138, 191, 0.6);
-        transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-
-    /* Efeito ao passar o mouse nas setas */
-    #carouselBanner .carousel-control-prev:hover .carousel-control-prev-icon,
-    #carouselBanner .carousel-control-next:hover .carousel-control-next-icon {
-        transform: scale(1.1); /* Aumenta ligeiramente a bolinha */
-        background-color: #fff; /* Muda a cor do fundo para branco (opcional) */
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23048ABF' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"); /* Muda a seta para ciano */
-    }
-     /* Correção para a seta direita no hover (inverte a lógica acima) */
-    #carouselBanner .carousel-control-next:hover .carousel-control-next-icon {
-         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23048ABF' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
-    }
-    .btn-banner-neon {
-        /* Base igual à das setas */
-        background-color: var(--cor-ciano) !important; /* Cor Ciano Sólida */
-        color: white !important; /* Texto Branco */
-        border: 2px solid transparent !important; /* Borda transparente para evitar pulos no hover */
-        
-        border-radius: 50px; /* Formato de pílula arredondado */
-        padding: 15px 50px; /* Tamanho grande */
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-decoration: none;
-        
-        /* Brilho Neon Intenso (Igual ao das setas) */
-        box-shadow: 0 0 20px rgba(4, 138, 191, 0.8);
-        
-        /* Transição suave para o hover */
-        transition: all 0.3s ease;
-    }
-
-    /* Efeito ao passar o mouse (Hover) */
-    .btn-banner-neon:hover {
-        background-color: white !important; /* Fundo vira Branco (igual as setas) */
-        color: var(--cor-ciano) !important; /* Texto vira Ciano */
-        
-        transform: scale(1.05); /* Aumenta ligeiramente de tamanho */
-        
-        /* Intensifica o brilho */
-        box-shadow: 0 0 30px rgba(4, 138, 191, 1), 0 0 50px rgba(255, 255, 255, 0.3);
-    }
-    /* =========================================
-   ESTILO DO TOPO (HERO SECTION) - NEON
-   ========================================= */
-
-/* Aumenta o espaço geral da seção */
-.hero-section {
-    padding: 20px 0 10px 0; /* Mais espaço em cima e embaixo */
-    text-align: center;     /* Centraliza tudo */
-}
-
-/* Estilo do Título Principal */
-.hero-title {
-    font-size: 3rem;        /* Fonte bem grande */
-    font-weight: 800;       /* Negrito forte */
-    color: #ffffff;
-    
-    /* O Espaço que você pediu */
-    margin-bottom: 20px; 
-    
-    /* Efeito de Brilho Neon Azul/Roxo */
-    text-shadow: 0 0 10px rgba(61, 70, 242, 0.8), 0 0 20px rgba(4, 138, 191, 0.5);
-    
-    /* Letra maiúscula para mais impacto */
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-}
-
-/* Estilo do Subtítulo */
-.hero-subtitle {
-    font-size: 1.2rem;      /* Tamanho médio */
-    color: var(--cor-ciano); /* Usa sua cor ciano */
-    font-weight: 500;
-    
-    /* Mais espaço embaixo antes do próximo conteúdo */
-    margin-bottom: 40px; 
-    
-    letter-spacing: 0.5px;
-    opacity: 0.9; /* Leve transparência para dar elegância */
-}
-
-/* (Opcional) Animação para os emojis de fogo pulsarem */
-
-.fire-icon {
-    display: inline-block;
-    margin: 0 10px; /* Espaço ao lado do fogo */
-}
-.game-card {
-    /* Gradiente Vertical Azul Escuro */
-    background: linear-gradient(180deg, #061a4a 0%, #011526 100%) !important;
-    
-    /* Borda fina Ciano */
-    border: 1px solid #048ABF !important;
-    
-    /* Arredondamento */
-    border-radius: 15px !important;
-    
-    /* Sombra suave azul */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
-    
-    /* Garante que o texto seja branco */
-    color: #ffffff !important;
-}
-
-/* 2. O interior do card (Remove fundos brancos/cinzas do bootstrap) */
-.game-card .card-body {
-    background-color: transparent !important;
-    color: #ffffff !important;
-}
-
-/* 3. Efeito ao passar o mouse no Card */
-.game-card:hover {
-    transform: translateY(-10px) !important;
-    border-color: #3D46F2 !important; /* Muda borda para Roxo/Azul */
-    box-shadow: 0 0 20px rgba(4, 138, 191, 0.6) !important; /* Brilho Neon */
-}
-
-/* 4. Título e Preço */
-.game-card .card-title {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-}
-.game-card .game-price {
-    color: #048ABF !important; /* Preço em Ciano */
-    font-size: 1.4rem !important;
+    transform: translateX(4px);
 }
 
 /* =========================================
-   FORÇAR ESTILO NEON NO BOTÃO "ADICIONAR"
+   CARROSSEL
    ========================================= */
+#carouselBanner .carousel-control-prev,
+#carouselBanner .carousel-control-next {
+    opacity: 1;
+    width: 80px;
+}
 
-/* Estado Normal: Transparente com Borda e Texto Neon */
+#carouselBanner .carousel-control-prev-icon,
+#carouselBanner .carousel-control-next-icon {
+    background-color: var(--cor-ciano);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-size: 25px;
+    box-shadow: 0 0 15px rgba(4, 138, 191, 0.6);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#carouselBanner .carousel-control-prev:hover .carousel-control-prev-icon,
+#carouselBanner .carousel-control-next:hover .carousel-control-next-icon {
+    transform: scale(1.1);
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23048ABF' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+
+#carouselBanner .carousel-control-next:hover .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23048ABF' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.btn-banner-neon {
+    background-color: var(--cor-ciano) !important;
+    color: white !important;
+    border: 2px solid transparent !important;
+    border-radius: 50px;
+    padding: 15px 50px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(4, 138, 191, 0.8);
+    transition: all 0.3s ease;
+}
+
+.btn-banner-neon:hover {
+    background-color: white !important;
+    color: var(--cor-ciano) !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(4, 138, 191, 1), 0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-section {
+    padding: 20px 0 10px 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(61, 70, 242, 0.8), 0 0 20px rgba(4, 138, 191, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--cor-ciano);
+    font-weight: 500;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.fire-icon {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* =========================================
+   MAIN GAME CARD
+   ========================================= */
 .main-game-card {
-        background: linear-gradient(160deg, #061a4a 0%, #011526 100%);
-        border: 1px solid rgba(4, 138, 191, 0.3);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
+    background: linear-gradient(160deg, #061a4a 0%, #011526 100%);
+    border: 1px solid rgba(4, 138, 191, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
 
-    /* Imagem Principal */
-    .main-game-image {
-        width: 100%;
-        height: auto;
-        max-height: 400px; /* Limita a altura da imagem para não ficar gigante */
-        object-fit: cover;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+.main-game-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-    /* Botão Adicionar Neon */
-    .btn-add-neon {
-        background-color: var(--cor-ciano, #048ABF);
-        color: #fff;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border: none;
-        box-shadow: 0 0 15px rgba(4, 138, 191, 0.5);
-        transition: all 0.3s ease;
-    }
-    .btn-add-neon:hover {
-        background-color: #fff;
-        color: var(--cor-ciano, #048ABF);
-        box-shadow: 0 0 25px rgba(4, 138, 191, 0.8);
-        transform: scale(1.02);
-    }
+.btn-add-neon {
+    background-color: var(--cor-ciano, #048ABF);
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 0 15px rgba(4, 138, 191, 0.5);
+    transition: all 0.3s ease;
+}
 
-    /* Estilo das Informações Extras */
-    .game-info-box {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
-        margin-top: 20px;
-    }
-    .info-label {
-        font-size: 0.8rem;
-        color: #ced4da;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 2px;
-    }
-    .info-value {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #fff;
-    }
-    .info-value.cyan { color: #048ABF; }
+.btn-add-neon:hover {
+    background-color: #fff;
+    color: var(--cor-ciano, #048ABF);
+    box-shadow: 0 0 25px rgba(4, 138, 191, 0.8);
+    transform: scale(1.02);
+}
 
-    /* Estilos dos Relacionados */
-    .img-padrao-capa {
-        width: 100% !important;
-        height: 200px !important;
-        object-fit: cover !important;
-        object-position: top center !important;
-    }
-    .btn-neon-animate {
-        transition: all 0.3s;
-        background-color: transparent;
-        border: 1px solid #048ABF;
-        color: #048ABF;
-        border-radius: 20px;
-        padding: 5px 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        display: inline-block;
-    }
-    .game-card:hover .btn-neon-animate {
-        background-color: #048ABF !important;
-        color: #011526 !important;
-        box-shadow: 0 0 15px rgba(4, 138, 191, 0.8);
-        transform: scale(1.1);
-    }
-    .game-card {
-        background: linear-gradient(160deg, #061a4a 0%, #011526 100%);
-        border: 1px solid rgba(4, 138, 191, 0.3);
-        border-radius: 12px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        height: 100%;
-    }
+.game-info-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    color: #ced4da;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.info-value.cyan { color: #048ABF; }
+
+.img-padrao-capa {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+}
+
+.btn-neon-animate {
+    transition: all 0.3s;
+    background-color: transparent;
+    border: 1px solid #048ABF;
+    color: #048ABF;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.game-card:hover .btn-neon-animate {
+    background-color: #048ABF !important;
+    color: #011526 !important;
+    box-shadow: 0 0 15px rgba(4, 138, 191, 0.8);
+    transform: scale(1.1);
+}
+
+/* =========================================
+   BANNERS
+   ========================================= */
 .meu-banner-principal {
-    width: 100vw; /* Força a largura ser 100% da janela de visualização */
+    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
-    margin-left: -50vw; /* Puxa o elemento para a borda esquerda */
-    margin-right: -50vw; /* Puxa o elemento para a borda direita */
-    padding-left: 0 !important; /* Remove preenchimentos laterais se houver */
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-left: 0 !important;
     padding-right: 0 !important;
-    max-width: none !important; /* Garante que não haja limite de largura */
-}    
+    max-width: none !important;
+}
+
 .banner-full-width {
-        width: 100vw;             /* Largura total da janela */
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;       /* Puxa para a esquerda */
-        margin-right: -50vw;      /* Puxa para a direita */
-        
-        /* Visual do Banner */
-        min-height: 350px;
-        background: linear-gradient(90deg, #2b0a3d 0%, #048ABF 100%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        overflow: hidden;
-        
-        display: flex;
-        align-items: center; /* Centraliza verticalmente */
-    }
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    min-height: 350px;
+    background: linear-gradient(90deg, #2b0a3d 0%, #048ABF 100%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================
+   CARRINHO
+   ========================================= */
 .cart-item {
-        background: linear-gradient(90deg, rgba(6, 26, 74, 0.8) 0%, rgba(1, 21, 38, 0.9) 100%);
-        border: 1px solid rgba(4, 138, 191, 0.2);
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
+    background: linear-gradient(90deg, rgba(6, 26, 74, 0.8) 0%, rgba(1, 21, 38, 0.9) 100%);
+    border: 1px solid rgba(4, 138, 191, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-    /* Efeito de brilho ao passar o mouse */
-    .cart-item:hover {
-        border-color: #048ABF;
-        box-shadow: 0 0 20px rgba(4, 138, 191, 0.15);
-        transform: translateX(5px);
-    }
+.cart-item:hover {
+    border-color: #048ABF;
+    box-shadow: 0 0 20px rgba(4, 138, 191, 0.15);
+    transform: translateX(5px);
+}
 
-    /* Imagem do Jogo (Capa Lateral) */
-    .cart-thumb-link {
-        display: block;
-        width: 140px;
-        height: 100px; /* Altura fixa para alinhar */
-        flex-shrink: 0;
-        position: relative;
-    }
-    
-    .cart-thumb-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-right: 1px solid rgba(255,255,255,0.1);
-        transition: opacity 0.3s;
-    }
-    .cart-thumb-link:hover .cart-thumb-img { opacity: 0.8; }
+.cart-thumb-link {
+    display: block;
+    width: 140px;
+    height: 100px;
+    flex-shrink: 0;
+    position: relative;
+}
 
-    /* Área de Texto do Item */
-    .cart-details {
-        padding: 15px 25px;
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap; /* Para mobile */
-    }
+.cart-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: opacity 0.3s;
+}
 
-    /* Nome do Jogo */
-    .cart-game-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #fff;
-        margin-bottom: 5px;
-        text-decoration: none;
-    }
-    .cart-game-title:hover { color: #048ABF; }
+.cart-thumb-link:hover .cart-thumb-img { opacity: 0.8; }
 
-    /* Badge de Quantidade (Estilo Gamer) */
-    .qty-badge {
-        background: rgba(4, 138, 191, 0.2);
-        color: #048ABF;
-        border: 1px solid #048ABF;
-        font-size: 0.8rem;
-        font-weight: 800;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-right: 8px;
-        text-transform: uppercase;
-    }
+.cart-details {
+    padding: 15px 25px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-    /* Preço do Item */
-    .cart-price {
-        font-size: 1.4rem;
-        font-weight: 800; 
-    }
+.cart-game-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
 
-    /* Botão Remover (Lixeira) */
-    .btn-trash {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.05);
-        color: #dc3545; /* Vermelho */
-        border: 2px solid transparent;
-        transition: all 0.3s;
-        text-decoration: none;
-        margin-left: 35px;
-    }
-    .btn-trash:hover {
-        background: rgba(220, 53, 69, 0.2);
-        border-color: #dc3545;
-        color: #fff;
-        transform: scale(1.1) 
-    }
+.cart-game-title:hover { color: #048ABF; }
 
-    /* Painel de Resumo (Direita) */
-    .cart-summary-card {
-        background: rgba(6, 26, 74, 0.6);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 15px;
-        padding: 30px;
-        position: sticky;
-        top: 20px; /* Fica fixo ao rolar a tela */
-    }
-
-    /* Botão Finalizar (Destaque Total) */
-    .btn-checkout-neon {
-        background: linear-gradient(45deg, #00d26a, #00b059);
-        border: none;
-        color: white;
-        width: 100%;
-        padding: 18px;
-        font-size: 1.1rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-radius: 50px;
-        box-shadow: 0 5px 20px rgba(0, 210, 106, 0.3);
-        transition: all 0.3s;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-    }
-    .btn-checkout-neon:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 210, 106, 0.5);
-        color: white;
-    }
-
-    /* Linhas de separação */
-    .divider { border-bottom: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
-.cart-badge-neon {
-    /* Força o posicionamento absoluto */
-    position: absolute !important;
-    
-    /* Zera as posições automáticas do Bootstrap */
-    top: 2px !important;      /* Ajuste vertical: Desce um pouquinho do topo */
-    right: 0px !important;    /* Ajuste horizontal: Cola na direita do container */
-    left: auto !important;    /* Remove qualquer alinhamento à esquerda */
-    transform: none !important; /* Remove o translate-middle do bootstrap que estava descentralizando */
-    
-    /* Visual da Bolinha (Mantém o estilo bonito) */
-    background: linear-gradient(135deg, #128cff 0%, #1100ff 100%) !important;
-    color: white !important;
-    font-size: 0.65rem !important;
+.qty-badge {
+    background: rgba(4, 138, 191, 0.2);
+    color: #048ABF;
+    border: 1px solid #048ABF;
+    font-size: 0.8rem;
     font-weight: 800;
-    
-    /* Tamanho e forma */
-    min-width: 18px;
-    height: 18px;
-    padding: 0 4px !important;
-    border-radius: 50px !important;
-    
-    /* Centraliza o texto dentro da bolinha */
-    display: flex !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    text-transform: uppercase;
+}
+
+.cart-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.btn-trash {
+    width: 40px;
+    height: 40px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    
-    /* Borda e Sombra */
-    border: 1px solid #0180f0 !important;
-    box-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
-    z-index: 10;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    color: #dc3545;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-left: 35px;
 }
+
+.btn-trash:hover {
+    background: rgba(220, 53, 69, 0.2);
+    border-color: #dc3545;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.cart-summary-card {
+    background: rgba(6, 26, 74, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 30px;
+    position: sticky;
+    top: 20px;
+}
+
+.btn-checkout-neon {
+    background: linear-gradient(45deg, #00d26a, #00b059);
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 210, 106, 0.3);
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-checkout-neon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 210, 106, 0.5);
+    color: white;
+}
+
+.divider {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin: 20px 0;
+}
+
+/* =========================================
+   BADGES E ÍCONES
+   ========================================= */
 .navbar-nav .nav-item .nav-link {
-    position: relative !important; /* O Pai tem que ser relativo */
+    position: relative !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
 }
+
+.cart-link-container {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: visible !important;
+}
+
+.cart-badge-neon {
+    position: absolute !important;
+    top: 2px !important;
+    right: 0px !important;
+    left: auto !important;
+    transform: none !important;
+    background: linear-gradient(135deg, #128cff 0%, #1100ff 100%) !important;
+    color: white !important;
+    font-size: 0.65rem !important;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px !important;
+    border-radius: 50px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0180f0 !important;
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+    z-index: 10;
+}
+
 .badge-posicao-fixa {
     position: absolute;
-    /* AJUSTE AQUI: Valores menores trazem a bolinha para mais perto */
-    top: -2px;        /* Subir só um pouquinho */
-    right: -2px;      /* Ir para direita só um pouquinho */
-    
-    /* O resto continua igual para manter o visual neon */
-    background: linear-gradient(135deg, #00a2ff 0%, #0400ff 100%);
+    top: -8px !important;
+    right: -8px !important;
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+    background: linear-gradient(135deg, #00b7ff 0%, #0011ff 100%);
     color: white;
-    font-size: 0.6rem; /* Diminui um pouco a fonte pra caber melhor */
     font-weight: 800;
-    min-width: 16px;   /* Diminui um pouco o tamanho total */
-    height: 16px;
     border-radius: 50%;
+    padding: 0 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #011526; 
-    box-shadow: 0 0 5px rgba(38, 0, 255, 0.8);
-    z-index: 10;
+    border: 2px solid #000000;
+    box-shadow: 0 0 8px rgba(47, 0, 255, 0.8);
+    z-index: 100;
 }
-.old-price {
+
+/* =========================================
+   PREÇOS E DESCONTOS
+   ========================================= */
+.old-price,
+.price-old-strikethrough,
+.cart-old-price {
     text-decoration: line-through;
     color: #888;
     font-size: 0.9rem;
     margin-right: 8px;
 }
 
-/* Badge de Desconto (-20%) */
-.discount-badge {
-    background-color: #ff0055; /* Rosa Neon */
+.discount-badge,
+.discount-tag-red,
+.cart-discount-badge {
+    background-color: #dc3545;
     color: white;
     font-weight: 800;
     font-size: 0.75rem;
@@ -777,102 +710,38 @@ footer i:hover {
     border-radius: 4px;
     margin-left: 5px;
     vertical-align: middle;
-    box-shadow: 0 0 8px rgba(255, 0, 85, 0.6);
-}
-/* --- ESTILOS DE DESCONTO --- */
-
-/* 1. Preço original riscado (cor cinza) */
-.price-old-strikethrough {
-    text-decoration: line-through;
-    color: #adb5bd; /* Cinza claro */
-    font-size: 0.9rem;
-    margin-right: 5px;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
 }
 
-/* 2. A Tag Vermelha de Porcentagem */
-.discount-tag-red {
-    background-color: #dc3545; /* Vermelho Bootstrap */
-    color: white;
-    font-weight: 800;
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: inline-block;
-    vertical-align: middle;
-    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5); /* Brilho vermelho sutil */
-}
-
-/* 3. O Novo Preço (Estilo padrão verde neon que já usamos) */
 .price-new-neon {
     color: #00ff88;
     font-weight: 800;
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-    display: block; /* Garante que fique na linha de baixo */
-    margin-top: -2px; /* Aproxima um pouco da linha de cima */
+    display: block;
+    margin-top: -2px;
 }
-.cart-old-price {
-        text-decoration: line-through;
-        color: #888;
-        font-size: 0.8rem;
-        margin-right: 5px;
-    }
-    .cart-discount-badge {
-        background-color: #dc3545;
-        color: white;
-        font-size: 0.7rem;
-        font-weight: 800;
-        padding: 1px 5px;
-        border-radius: 4px;
-    }
-.cart-link-container {
-        position: relative !important;
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        overflow: visible !important; /* Importante para a bolinha não ser cortada */
-    }
 
-    /* 2. A BOLINHA (Maior e Mais Visível) */
-    .badge-posicao-fixa {
-        position: absolute !important;
-        
-        /* Ajuste de Posição (Joguei um pouco mais pra fora pra não tampar o carrinho) */
-        top: -8px !important;      
-        right: -8px !important;    
-        
-        /* Tamanho MAIOR */
-        min-width: 24px;  /* Antes era 18px */
-        height: 24px;     /* Antes era 18px */
-        font-size: 0.85rem; /* Aumentei a fonte do número */
-        
-        /* Visual Neon */
-        background: linear-gradient(135deg, #00b7ff 0%, #0011ff 100%);
-        color: white;
-        font-weight: 800;
-        border-radius: 50%;
-        padding: 0 4px;
-        
-        /* Centralizar Texto */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        /* Borda */
-        border: 2px solid #000000; 
-        box-shadow: 0 0 8px rgba(47, 0, 255, 0.8);
-        z-index: 100;
-    }
+.cart-old-price {
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+.cart-discount-badge {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+}
+
+/* =========================================
+   BOTÕES DE VOLTAR
+   ========================================= */
 .btn-back-neon {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 12px 35px;
-    
-    /* Visual: Fundo transparente com Borda Neon */
     background: transparent;
-    border: 2px solid #048ABF; /* Ciano */
+    border: 2px solid #048ABF;
     color: #048ABF;
-    
     border-radius: 50px;
     font-weight: 800;
     text-transform: uppercase;
@@ -881,153 +750,344 @@ footer i:hover {
     box-shadow: 0 0 10px rgba(4, 138, 191, 0.1);
 }
 
-/* Efeito ao passar o mouse */
 .btn-back-neon:hover {
-    background: #048ABF; /* Preenche de ciano */
-    color: #011526;      /* Texto fica escuro */
-    box-shadow: 0 0 25px rgba(4, 138, 191, 0.6); /* Brilho forte */
-    transform: translateX(-5px); /* Move levemente para a esquerda */
+    background: #048ABF;
+    color: #011526;
+    box-shadow: 0 0 25px rgba(4, 138, 191, 0.6);
+    transform: translateX(-5px);
     text-decoration: none;
 }
+
+/* =========================================
+   PERFIL DO USUÁRIO
+   ========================================= */
 .profile-header-card {
-        background: linear-gradient(135deg, rgba(1, 21, 38, 0.95) 0%, rgba(6, 26, 74, 0.95) 100%);
-        border: 1px solid rgba(4, 138, 191, 0.3);
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        margin-bottom: 50px;
-        position: relative;
-        overflow: hidden;
-    }
+    background: linear-gradient(135deg, rgba(1, 21, 38, 0.95) 0%, rgba(6, 26, 74, 0.95) 100%);
+    border: 1px solid rgba(4, 138, 191, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
 
-    /* Fundo decorativo (opcional) */
-    .profile-bg-glow {
-        position: absolute;
-        top: -50%;
-        left: -10%;
-        width: 60%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(4, 138, 191, 0.1) 0%, transparent 70%);
-        pointer-events: none;
-    }
+.profile-bg-glow {
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(4, 138, 191, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
 
-    /* FOTO DE PERFIL (BOLA GRANDE) */
-    .profile-avatar-container {
-        width: 180px;
-        height: 180px;
-        flex-shrink: 0;
-        position: relative;
-    }
+.profile-avatar-container {
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    position: relative;
+}
 
-    .profile-avatar {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%; /* Faz ficar redondo */
-        object-fit: cover;
-        border: 4px solid #048ABF; /* Borda Ciano */
-        box-shadow: 0 0 20px rgba(4, 138, 191, 0.5); /* Brilho Neon */
-        transition: transform 0.3s ease;
-    }
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #048ABF;
+    box-shadow: 0 0 20px rgba(4, 138, 191, 0.5);
+    transition: transform 0.3s ease;
+}
 
-    .profile-avatar:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 30px rgba(4, 138, 191, 0.8);
-    }
+.profile-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(4, 138, 191, 0.8);
+}
 
-    /* Botão de editar foto (pequeno no canto) */
-    .btn-edit-photo {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background: #011526;
-        border: 2px solid #048ABF;
-        color: #048ABF;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-    .btn-edit-photo:hover {
-        background: #048ABF;
-        color: white;
-    }
+.btn-edit-photo {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #011526;
+    border: 2px solid #048ABF;
+    color: #048ABF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    /* INFO DO USUÁRIO (DIREITA) */
-    .profile-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        padding-left: 30px;
-    }
+.btn-edit-photo:hover {
+    background: #048ABF;
+    color: white;
+}
 
-    .user-name {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: white;
-        text-transform: uppercase;
-        margin-bottom: 5px;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 30px;
+}
 
-    .user-email {
-        font-size: 1.1rem;
-        color: #8fa3bf;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+.user-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
 
-    .user-badges {
-        margin-top: 20px;
-    }
+.user-email {
+    font-size: 1.1rem;
+    color: #8fa3bf;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-    /* --- SEÇÃO DE JOGOS (EMBAIXO) --- */
-    .library-title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: white;
-        border-left: 5px solid #048ABF;
-        padding-left: 15px;
-        margin-bottom: 30px;
-    }
+.user-badges {
+    margin-top: 20px;
+}
 
-    .game-library-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        overflow: hidden;
-        transition: transform 0.2s;
-        border: 1px solid transparent;
-    }
-    .game-library-card:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(4, 138, 191, 0.3);
-    }
+.library-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    border-left: 5px solid #048ABF;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
 
-    .library-img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-    }
+.game-library-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    border: 1px solid transparent;
+}
 
-    .library-body {
-        padding: 15px;
-    }
+.game-library-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(4, 138, 191, 0.3);
+}
 
-    .library-game-title {
-        font-size: 1rem;
-        font-weight: 700;
-        color: white;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    /* RESET */
+.library-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.library-body {
+    padding: 15px;
+}
+
+.library-game-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================================
+   ESTILOS DE LOGIN (DO STYLE2)
+   ========================================= */
+.login-page {
+    position: fixed;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(0, 20, 60, 0.75), rgba(0, 20, 60, 0.85)),
+        url("https://i.redd.it/316mnvm20sle1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 360px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.image-area {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-area img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: #e0e0e0;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin: 10px 0 20px;
+    color: #e0e0e0;
+}
+
+.options a {
+    color: #d0e4ff;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 30px;
+    border: none;
+    background: #0c0c0c;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #000;
+    transform: scale(1.03);
+}
+
+.register {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.register a {
+    color: #d0e4ff;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+.login-box {
+    width: 360px;
+    padding: 35px 30px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 40px rgba(0, 0, 0, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    color: #fff;
+}
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+
+    border-radius: 30px;
+    border: none;
+
+    background: #0c0c0c;
+    color: #fff;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #000;
+    transform: scale(1.03);
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* FUNDO DO LOGIN */
+.login-page {
+    position: fixed;
+    inset: 0; /* top, right, bottom, left = 0 */
+
+    background-image: 
+        linear-gradient(rgba(0, 20, 60, 0.75), rgba(0, 20, 60, 0.85)),
+        url("https://i.redd.it/316mnvm20sle1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 360px;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    color: white;
+}
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -1036,17 +1096,7 @@ footer i:hover {
 }
 
 /* FUNDO DA PÁGINA */
-body {
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0, 60, 130, 0.75), rgba(0, 40, 110, 0.85)),
-        url("../img/bg-login.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 /* CARD LOGIN */
 .login-box {
@@ -1145,80 +1195,3 @@ body {
 .register a:hover {
     text-decoration: underline;
 }
-
-.login-box {
-    width: 360px;
-    padding: 35px 30px;
-
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 25px 40px rgba(0, 0, 0, 0.35);
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    color: #fff;
-}
-.btn-login {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-
-    border-radius: 30px;
-    border: none;
-
-    background: #0c0c0c;
-    color: #fff;
-
-    font-weight: bold;
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.btn-login:hover {
-    background: #000;
-    transform: scale(1.03);
-}
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-/* FUNDO DO LOGIN */
-.login-page {
-    position: fixed;
-    inset: 0; /* top, right, bottom, left = 0 */
-
-    background-image: 
-        linear-gradient(rgba(0, 20, 60, 0.75), rgba(0, 20, 60, 0.85)),
-        url("https://i.redd.it/316mnvm20sle1.png");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login-box {
-    width: 360px;
-    padding: 30px;
-
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    border-radius: 18px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-
-    color: white;
-}
-
