@@ -1195,3 +1195,12 @@ html, body {
 .register a:hover {
     text-decoration: underline;
 }
+
+    .library-game-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
