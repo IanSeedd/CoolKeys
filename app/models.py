@@ -1,9 +1,10 @@
 from django.db import models
 import os
+import re
 from django.contrib.auth.models import User
 from django.conf import settings
 from decimal import Decimal
-import datetime
+from django.utils.timezone import now
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 
@@ -26,7 +27,7 @@ class Jogo(models.Model):
 
     deletado = models.BooleanField(default=False) # Soft delete
     autoria = models.CharField(max_length=200, default='Desconhecido') # Desenvolvedora, caso fique vazio default
-    lancamento = models.DateField(default=datetime.date.today) # Caso fique vazio a data será a data da criação do objeto
+    lancamento = models.DateField(default=now) # Caso fique vazio a data será a data da criação do objeto
     desconto = models.IntegerField( # Em porcentagem 
         default=0,
         validators=[
@@ -80,9 +81,6 @@ class Jogo(models.Model):
             return self.preco * desconto_decimal
         return Decimal('0.00')
     
-    @property
-    def slug_nome(self): # Deixa o nome mais amigável para o sistema
-        return slugify(self.nome)
     
     def __str__(self):
         # Mostra preço com desconto se houver
@@ -92,6 +90,21 @@ class Jogo(models.Model):
 
 
 # ==================== IMAGENS DETALHE DE JOGOS ====================
+def upload_to_imagem(instance, filename):
+    extensao = os.path.splitext(filename)[1].lower()
+
+    nome_jogo = slugify(instance.jogo.nome)
+
+    if instance.pk:
+        numero_imagem = instance.ordem
+    else:
+        total = ImagemExtra.objects.filter(jogo=instance.jogo).count()
+        numero_imagem = total + 1
+
+    nome_arquivo = f"{nome_jogo}-{numero_imagem}{extensao}"
+    return f"jogos-extras/{nome_jogo}/{nome_arquivo}"
+
+
 class ImagemExtra(models.Model):
     jogo = models.ForeignKey(
         'Jogo',  
@@ -99,29 +112,6 @@ class ImagemExtra(models.Model):
         related_name='imagens_extras'
     )
     
-    @staticmethod
-    def upload_to_imagem(instance, filename):
-        # Pega extensão
-        extensao = os.path.splitext(filename)[1].lower()
-
-        nome_jogo = instance.jogo.nome.lower().replace(' ', '-')
-        import re
-        nome_jogo = re.sub(r'[^\w\-]', '', nome_jogo)  # Formata nome do jogo (minúsculo, hífens, remove caracteres especiais)
-        
-        # Impede que duas imagens tenham o mesmo número caso sejam upadas ao mesmo tempo
-        if instance.pk:
-            # Se já existe, usa a ordem salva
-            numero_imagem = instance.ordem
-        else:
-            # Se é nova, conta + 1
-            total = ImagemExtra.objects.filter(jogo=instance.jogo).count()
-            numero_imagem = total + 1
-
-        # Nome do arquivo
-        nome_arquivo = f"{nome_jogo}-{numero_imagem}{extensao}"
-        
-        # Retorna com pasta
-        return f"jogos-extras/{nome_jogo}/{nome_arquivo}"
     
     imagem = models.ImageField(upload_to=upload_to_imagem)
     # IMPEDIR ORDEM NEGATIVA ↓
@@ -134,6 +124,8 @@ class ImagemExtra(models.Model):
         ordering = ['ordem']
         # Garante que não tenha ordens duplicadas para o mesmo jogo
         unique_together = ['jogo', 'ordem']
+        verbose_name = "Imagem Extra"
+        verbose_name_plural = "Imagens Extras"
 
     def save(self, *args, **kwargs):
         if self.pk is None and self.ordem == 0:
