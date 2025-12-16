@@ -12,7 +12,7 @@ def home_view(request):
     # 2. Jogo do Banner Secundário (O roxo de Pré-Venda)
     # AQUI ESTÁ A MUDANÇA: Busca APENAS um jogo da categoria 'pre_lancamento'
     # Se não tiver nenhum jogo nessa categoria, a variável será None e o banner não aparecerá no HTML.
-    destaque_secundario = Jogo.objects.filter(categoria__nome='Pre lançamento', deletado=False).last()
+    destaque_secundario = Jogo.objects.filter(pre_lancamento=True, deletado=False).last()
 
     context = {
         'categorias': Categoria.objects.all(),
@@ -240,10 +240,12 @@ def perfil_view(request):
         status='finalizada'
     ).order_by('-data_compra')
 
-
+    # Sempre pega ou cria o FotoPerfil (já que tem default)
+    foto_perfil, created = FotoPerfil.objects.get_or_create(usuario=request.user)
 
     return render(request, 'perfil.html', {
         'compras_finalizadas': compras_finalizadas,
+        'foto_perfil': foto_perfil,
     })
 
 # Pagina de ADM
@@ -266,3 +268,4 @@ def dashboard_admin_view(request):
     }
     
     return render(request, 'admin/dashboard.html', context)
+

@@ -4,6 +4,8 @@ from django.conf import settings
 from decimal import Decimal
 import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 # Models para produtos/jogos
 # Categoria:
@@ -20,6 +22,8 @@ class Jogo(models.Model):
     preco = models.DecimalField(max_digits=8, decimal_places=2)
     descricao = models.TextField()
     banner = models.BooleanField(default=False) # Se o jogo é um jogo que aparece no banner
+    pre_lancamento = models.BooleanField(default=False) # Editar isso
+
     deletado = models.BooleanField(default=False) # Soft delete
     autoria = models.CharField(max_length=200, default='Desconhecido') # Desenvolvedora, caso fique vazio default
     lancamento = models.DateField(default=datetime.date.today) # Caso fique vazio a data será a data da criação do objeto
