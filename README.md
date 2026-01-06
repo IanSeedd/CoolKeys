@@ -9,7 +9,7 @@ CoolKeys é um projeto de **e-commerce de jogos** desenvolvido como **projeto fi
 O objetivo do projeto foi aplicar, na prática, conceitos de **backend, frontend, autenticação, permissões e organização de um sistema web completo**.
 
 * 🔧 **Backend:** desenvolvido por **IanSeedd**
-* 🎨 **Frontend:** desenvolvido pelos colaboradores **Dudss2007**, **leonardohishinuma** e **Dudss2007**
+* 🎨 **Frontend:** desenvolvido pelos colaboradores **Dudss2007**, **leonardohishinuma** e **mesquitainfa93**
 
 ---
 
@@ -168,7 +168,7 @@ Projeto desenvolvido em grupo por:
 | Backend  | **IanSeedd**          | [https://github.com/IanSeedd](https://github.com/IanSeedd)                   |
 | Frontend | **leonardohishinuma** | [https://github.com/leonardohishinuma](https://github.com/leonardohishinuma) |
 | Frontend | **Dudss2007**         | [https://github.com/Dudss2007](https://github.com/Dudss2007)                 |
-| Frontend | ****         | [)                 |
+| Frontend | **mesquitainfa93**    | [https://github.com/Dudss2007](https://github.com/mesquitainfa93)            |
 
 ---
 
