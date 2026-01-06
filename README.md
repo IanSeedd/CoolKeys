@@ -180,5 +180,5 @@ Este projeto foi desenvolvido como **trabalho final do curso Python Web Developm
 * Estruturação de um projeto web real
 
 ---
-
+![Texto Alternativo](app/static/img/Screenshot_1.png)
 
