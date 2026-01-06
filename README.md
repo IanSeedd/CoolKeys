@@ -1,5 +1,5 @@
 # 🎮 CoolKeys
-
+![Texto Alternativo](app/static/img/Screenshot_1.png)
 **CoolKeys — Plataforma de e-commerce de jogos digitais**
 
 CoolKeys é um projeto de **e-commerce de jogos** desenvolvido como **projeto final em grupo** do curso **Python Web Development Fullstacker**, realizado no **SENAC**.
@@ -180,5 +180,4 @@ Este projeto foi desenvolvido como **trabalho final do curso Python Web Developm
 * Estruturação de um projeto web real
 
 ---
-![Texto Alternativo](app/static/img/Screenshot_1.png)
 
