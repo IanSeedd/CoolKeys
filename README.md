@@ -1,5 +1,3 @@
----
-
 # 🎮 CoolKeys
 
 **CoolKeys — Plataforma de e-commerce de jogos digitais**
