@@ -23,7 +23,7 @@ O objetivo do projeto foi aplicar, na prática, conceitos de **backend, frontend
   * 5. Tornar usuário `admin_staff` via `/admin`
   * 6. Rodar o servidor
 * 🧠 Uso do sistema
-* ❤️ Créditos
+* 🛠 Créditos
 * 📜 Contexto acadêmico
 
 ---
@@ -88,7 +88,7 @@ python manage.py createsuperuser
 Informe:
 
 * Nome de usuário
-* Email
+* Email (Pode pular se quiser)
 * Senha
 
 ⚠️ **Esse usuário ainda NÃO tem acesso automático ao dashboard nativo do CoolKeys.**
@@ -157,7 +157,7 @@ Esse passo é **obrigatório** para que o sistema reconheça o usuário como adm
 
 ---
 
-## ❤️ Créditos
+## 🛠 Créditos
 
 Projeto desenvolvido em grupo por:
 
@@ -166,7 +166,7 @@ Projeto desenvolvido em grupo por:
 | Backend  | **IanSeedd**          | [https://github.com/IanSeedd](https://github.com/IanSeedd)                   |
 | Frontend | **leonardohishinuma** | [https://github.com/leonardohishinuma](https://github.com/leonardohishinuma) |
 | Frontend | **Dudss2007**         | [https://github.com/Dudss2007](https://github.com/Dudss2007)                 |
-| Frontend | **mesquitainfa93**    | [https://github.com/Dudss2007](https://github.com/mesquitainfa93)            |
+| Frontend | **mesquitainfa93**    | [https://github.com/mesquitainfa93](https://github.com/mesquitainfa93)       |
 
 ---
 
